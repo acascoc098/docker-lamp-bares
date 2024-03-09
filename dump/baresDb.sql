@@ -48,15 +48,12 @@ CREATE TABLE `bares` (
 -- Volcado de datos para la tabla `bares`
 --
 
-INSERT INTO `bares` (`id`, `id_usuario`, `name`, `city`, `province`, `phone`,`image`) VALUES
-(1, 3, 'Socuellamos', 'pueblo de Sonia', 0, NULL),
-(3, 2, 'Martos', 'pueblo de 8.000 hb', 0, NULL),
-(4, 2, 'Mancha Real', 'pueblo de 10.000 hb', 0, NULL),
-(6, 3, 'Lezuza', 'Pueblo ibero-romano de Albacete', 0, NULL),
-(7, 3, 'La Gineta', 'Pueblo ibero-romano de Albacete', 0, '63c98096a9ab6.JPEG'),
-(15, 3, 'Socuellamos', 'Pueblo con el mejor vino de España', 12000, '63cea637e6eac.JPEG'),
-(16, 3, 'Lezuza', 'Pueblo Ibero-Romano de Albacete', 12000, '63cea7b22ba11.JPEG'),
-(18, 3, 'La Gineta', 'pueblo muy cercano a Albacete', 12000, '63ceaa036b913.JPEG');
+INSERT INTO `bares` (`id`, `id_usuario`, `nombre`, `descripcion`, `imagen`) VALUES
+(1, 3, 'La Yedra', 'bar de tapas', NULL),
+(2, 3, 'El paso', 'bar de tapas', NULL),
+(3, 2, 'Rojas', 'bar de tapas', NULL),
+(4, 2, 'El Tino', 'bar de tapas', NULL),
+(6, 3, 'La Cantina', 'bar de tapas', NULL);
 
 -- --------------------------------------------------------
 
@@ -75,11 +72,7 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id`, `email`, `password`, `nombre`, `imagen`, `disponible`, `token`) VALUES
 (1, 'davidrodenasherraiz@dominio.com', '07d046d5fac12b3f82daf5035b9aae86db5adc8275ebfbf05ec83005a4a8ba3e', 'david rodenas herraiz', NULL, 1, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjIxMzczNzIsImRhdGEiOnsiaWQiOiIxIiwiZW1haWwiOiJkYXZpZHJvZEBnbWFpbC5jb20ifX0.FLlqJO30GgMiYWFNSXFjIWunenCjb7EnZJ30PSJdAN8'),
 (2, 'soniamenadelgadol@dominio.com', 'b90d33f2b12789d32691050a2083be28eb99985601a1f1a72efc9232e49306fd', 'sonia mena delgado', NULL, 1, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzM3NzU0MDEsImRhdGEiOnsiaWQiOiIyIiwiZW1haWwiOiJzb25pYW1lbmFkZWxAZ21haWwuY29tIn19.33d9tDvm1jRJ-fzdz1-leoRQ5EMnnrxuY7BNDqatl5g'),
-(3, 'srodher115@g.educaand.es', '324ca5355e9d7d5f60fb23b379f5bad7d4a12013a8b89b46ec2392c3021d3a27', 'santiago', NULL, 1, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzQ1NDUwMjQsImRhdGEiOnsiaWQiOiIzIiwiZW1haWwiOiJzcm9kaGVyMTE1QGcuZWR1Y2FhbmQuZXMifX0.gNhn_y97brgSLHRzRMQgrO838GBRAcCuDjdF12Pu5Mw'),
-(5, 'paco112@g.educaand.es', '89a0d30ea1b4cb9aff84758a418e835f06993f9f2446851ef331d30c27173828', 'pacoooooo', '63c985673e93e.PNG', 1, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzQzMjg0MjAsImRhdGEiOnsiaWQiOiI1IiwiZW1haWwiOiJwYWNvMTEyQGcuZWR1Y2FhbmQuZXMifX0.Rgfklsu132r4r22w7KLYJ9n2uTe9WImN-TjA7-iycOc'),
-(9, 'jose@g.educaand.es', '1ec4ed037766aa181d8840ad04b9fc6e195fd37dedc04c98a5767a67d3758ece', 'jose', '63c984c24de7d.PNG', 1, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzQxNTExMzcsImRhdGEiOnsiaWQiOiI5IiwiZW1haWwiOiJqb3NlQGcuZWR1Y2FhbmQuZXMifX0.-lpq8EB-CTU-ir5pKGtYx0l75YpgLCOECCzyNzD8D7Q'),
-(10, 'nuevo@gmail.com', '238b4429a65d9a87985b33497d8368e0847b52437595018c604af92a154f3e98', 'nuevo', NULL, 0, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzQ0OTA1MDksImRhdGEiOnsiaWQiOiIxMCIsImVtYWlsIjoibnVldm9AZ21haWwuY29tIn19.VbhXyRyqj7NHgdflN6UTDbGxRXmlFOHxZOBp7ev_bxY'),
-(11, 'nuevo@gmail.com', '238b4429a65d9a87985b33497d8368e0847b52437595018c604af92a154f3e98', 'nuevo', '63ceb2782e9e2.', 1, NULL);
+(3, 'srodher115@g.educaand.es', '324ca5355e9d7d5f60fb23b379f5bad7d4a12013a8b89b46ec2392c3021d3a27', 'santiago', NULL, 1, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzQ1NDUwMjQsImRhdGEiOnsiaWQiOiIzIiwiZW1haWwiOiJzcm9kaGVyMTE1QGcuZWR1Y2FhbmQuZXMifX0.gNhn_y97brgSLHRzRMQgrO838GBRAcCuDjdF12Pu5Mw')
 
 
 ALTER TABLE `log`

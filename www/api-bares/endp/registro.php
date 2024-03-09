@@ -2,14 +2,7 @@
 require_once '../respuestas/response.php';
 require_once '../modelos/user.class.php';
 
-/**
- * endpoint sólo para el REGISTRO DE  de las cuentas de usuario.
- * NO ES NECESARIO TOKEN
- * Los parámetros se pasan por body
- * 
- * De momento, un usuario que se registra, debe después loguearse.
- * 
- */
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = new User();
