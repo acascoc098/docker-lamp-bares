@@ -49,7 +49,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
 		//Arma la respuesta con resultado ok y los usuarios en el array.  Luego le pasamos
 		//a resul nuestro response.
 		//ME FALTA, MANDAR COMO IMAGEN, LA URL.
-		$url_raiz_img="http://".$_SERVER['HTTP_HOST']."/api-pueblos/public/img";
+		$url_raiz_img="http://".$_SERVER['HTTP_HOST']."/api-bares/public/img";
 
 		for($i=0; $i< count($usuarios); $i++){
 			if (!empty($usuarios[$i]['imagen']))

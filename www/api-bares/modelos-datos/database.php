@@ -6,7 +6,7 @@ class Database
 	private $results_page = 50; //número de resultados por página.
 
 	public function __construct(){
-		$this->connection = new mysqli('db', 'root', 'santi', 'pueblosDb', '3306');
+		$this->connection = new mysqli('db', 'root', 'andrea', 'baresDb', '3306');
 		if($this->connection->connect_errno){
 			echo 'Error de conexión a la base de datos';
 			exit;

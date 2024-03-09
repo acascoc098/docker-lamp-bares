@@ -53,7 +53,7 @@ Falta devolver todos los datos de ese usuario.
 		$nombre = $user['nombre'];
 		$imagen = $user['imagen'];
 		$email = $user['email'];
-		$url_raiz_img="http://".$_SERVER['HTTP_HOST']."/api-pueblos/public/img";
+		$url_raiz_img="http://".$_SERVER['HTTP_HOST']."/api-bares/public/img";
 
 		$imagen = $url_raiz_img."/".$imagen;
 		

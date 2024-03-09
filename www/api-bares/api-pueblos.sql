@@ -40,10 +40,10 @@ CREATE TABLE `bares` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `pueblos`
+-- Volcado de datos para la tabla `bares`
 --
 
-INSERT INTO `pueblos` (`id`, `id_usuario`, `nombre`, `descripcion`, `imagen`) VALUES
+INSERT INTO `bares` (`id`, `id_usuario`, `nombre`, `descripcion`, `imagen`) VALUES
 (1, 3, 'Socuellamos', 'pueblo de Sonia', NULL),
 (2, 3, 'Chinchilla', 'pueblo de 10.000 hb', NULL),
 (3, 2, 'Martos', 'pueblo de 8.000 hb', NULL),

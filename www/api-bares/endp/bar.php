@@ -1,11 +1,11 @@
 <?php
 require_once '../respuestas/response.php';
-require_once '../modelos/pueblo.class.php';
+require_once '../modelos/bar.class.php';
 require_once '../modelos/auth.class.php';
 
 /**
- * endpoint para la gestión de datos con los pueblos.
- * Get (para objeter todos los pueblos)
+ * endpoint para la gestión de datos con los bares.
+ * Get (para objeter todos los bares)
  *  - token (para la autenticación y obtención del id usuario)
  * 
  * Post (para la creación de pueblo)
@@ -78,29 +78,29 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 exit;
         }
         */
-        //Recuperamos todos los pueblos
-        $pueblos = $pueblo->get($params);
-        //$auth->insertarLog('lleva a solicitud de pueblos');
-        $url_raiz_img = "http://".$_SERVER['HTTP_HOST']."/api-pueblos/public/img";
-		for($i=0; $i< count($pueblos); $i++){
-			if (!empty($pueblos[$i]['imagen']))
-				$pueblos[$i]['imagen'] = $url_raiz_img ."/". $pueblos[$i]['imagen'];
+        //Recuperamos todos los bares
+        $bares = $pueblo->get($params);
+        //$auth->insertarLog('lleva a solicitud de bares');
+        $url_raiz_img = "http://".$_SERVER['HTTP_HOST']."/api-bares/public/img";
+		for($i=0; $i< count($bares); $i++){
+			if (!empty($bares[$i]['imagen']))
+				$bares[$i]['imagen'] = $url_raiz_img ."/". $bares[$i]['imagen'];
 		}
 
 
 /*
         $response = array(
             'result'=> 'ok',
-            'details'=>"Hay pueblos"
+            'details'=>"Hay bares"
         );
         Response::result(200, $response);
         break;
 */
         $response = array(
             'result'=> 'ok',
-            'pueblos'=> $pueblos
+            'bares'=> $bares
         );
-       // $auth->insertarLog('devuelve pueblos'); 
+       // $auth->insertarLog('devuelve bares'); 
         Response::result(200, $response);
         break;
     
@@ -153,7 +153,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $id_param['id'] = $insert_id_pueblo;
         $pueblo = $pueblo->get($id_param);
         if($pueblo[0]['imagen'] !='')
-            $name_file =  "http://".$_SERVER['HTTP_HOST']."/api-pueblos/public/img/".$pueblo[0]['imagen'];
+            $name_file =  "http://".$_SERVER['HTTP_HOST']."/api-bares/public/img/".$pueblo[0]['imagen'];
         else
             $name_file = '';
 
@@ -217,7 +217,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
        
 
         if($pueblo[0]['imagen'] !='')
-            $name_file =  "http://".$_SERVER['HTTP_HOST']."/api-pueblos/public/img/".$pueblo[0]['imagen'];
+            $name_file =  "http://".$_SERVER['HTTP_HOST']."/api-bares/public/img/".$pueblo[0]['imagen'];
         else
             $name_file = '';
             

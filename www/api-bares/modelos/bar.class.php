@@ -4,7 +4,7 @@ require_once '../modelos-datos/database.php';
 
 class Pueblo extends Database
 {
-	private $table = 'pueblos';
+	private $table = 'bares';
 
 	//parámetros permitidos para hacer consultas selección.
 	private $allowedConditions_get = array(
