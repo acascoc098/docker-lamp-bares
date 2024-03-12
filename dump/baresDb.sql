@@ -1,12 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 5.2.0
--- https://www.phpmyadmin.net/
---
--- Servidor: 127.0.0.1
--- Tiempo de generación: 27-01-2023 a las 11:11:58
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -18,15 +9,21 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `api-bares`
+-- BBDD: `api-baresbares`
 --
 
+-- --------------------------------------------------------
 
 
 CREATE TABLE `log` (
   `id` int(11) NOT NULL,
-  `log` varchar(240) NOT NULL
+  `log` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+INSERT INTO `log` (`id`, `log`) VALUES
+(5, 'recibido');
 
 -- --------------------------------------------------------
 
@@ -37,10 +34,8 @@ CREATE TABLE `log` (
 CREATE TABLE `bares` (
   `id` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `city` varchar(250) NOT NULL,
-  `province` varchar(250) NOT NULL,
-  `phone` varchar(250) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `descripcion` varchar(250) NOT NULL,
   `imagen` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -49,14 +44,17 @@ CREATE TABLE `bares` (
 --
 
 INSERT INTO `bares` (`id`, `id_usuario`, `nombre`, `descripcion`, `imagen`) VALUES
-(1, 3, 'La Yedra', 'bar de tapas', NULL),
-(2, 3, 'El paso', 'bar de tapas', NULL),
-(3, 2, 'Rojas', 'bar de tapas', NULL),
-(4, 2, 'El Tino', 'bar de tapas', NULL),
-(6, 3, 'La Cantina', 'bar de tapas', NULL);
+(1, 3, 'La Yedra', 'bar de tapas', 'yedra.jpg'),
+(2, 3, 'El paso', 'bar de tapas', 'ELPASO.png'),
+(3, 2, 'Rojas', 'bar de tapas', 'rojas.jpg'),
+(4, 2, 'El Tino', 'bar de tapas', 'tino.jpg'),
+(5, 3, 'La Cantina', 'bar de tapas', 'cantina.jpeg');
 
 -- --------------------------------------------------------
 
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
 
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL COMMENT 'clave principal',
@@ -72,7 +70,7 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id`, `email`, `password`, `nombre`, `imagen`, `disponible`, `token`) VALUES
 (1, 'davidrodenasherraiz@dominio.com', '07d046d5fac12b3f82daf5035b9aae86db5adc8275ebfbf05ec83005a4a8ba3e', 'david rodenas herraiz', NULL, 1, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjIxMzczNzIsImRhdGEiOnsiaWQiOiIxIiwiZW1haWwiOiJkYXZpZHJvZEBnbWFpbC5jb20ifX0.FLlqJO30GgMiYWFNSXFjIWunenCjb7EnZJ30PSJdAN8'),
 (2, 'soniamenadelgadol@dominio.com', 'b90d33f2b12789d32691050a2083be28eb99985601a1f1a72efc9232e49306fd', 'sonia mena delgado', NULL, 1, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzM3NzU0MDEsImRhdGEiOnsiaWQiOiIyIiwiZW1haWwiOiJzb25pYW1lbmFkZWxAZ21haWwuY29tIn19.33d9tDvm1jRJ-fzdz1-leoRQ5EMnnrxuY7BNDqatl5g'),
-(3, 'srodher115@g.educaand.es', '324ca5355e9d7d5f60fb23b379f5bad7d4a12013a8b89b46ec2392c3021d3a27', 'santiago', NULL, 1, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzQ1NDUwMjQsImRhdGEiOnsiaWQiOiIzIiwiZW1haWwiOiJzcm9kaGVyMTE1QGcuZWR1Y2FhbmQuZXMifX0.gNhn_y97brgSLHRzRMQgrO838GBRAcCuDjdF12Pu5Mw')
+(3, 'srodher115@g.educaand.es', '324ca5355e9d7d5f60fb23b379f5bad7d4a12013a8b89b46ec2392c3021d3a27', 'santiago', NULL, 1, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzM3NzU2ODYsImRhdGEiOnsiaWQiOiIzIiwiZW1haWwiOiJzcm9kaGVyMTE1QGcuZWR1Y2FhbmQuZXMifX0.9Wb7_IMl_pLDzcPY8IH1SU4XUrOY5sdtC1Vhxr7_44c');
 
 
 ALTER TABLE `log`
@@ -84,24 +82,21 @@ ALTER TABLE `log`
 ALTER TABLE `bares`
   ADD PRIMARY KEY (`id`);
 
-
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
+
 ALTER TABLE `log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `bares`
 --
 ALTER TABLE `bares`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
---
--- AUTO_INCREMENT de la tabla `usuarios`
---
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'clave principal', AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'clave principal', AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
