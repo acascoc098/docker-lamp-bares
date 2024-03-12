@@ -227,7 +227,7 @@ private $allowedConditions_update = array(
 				exit;
 			}
 		}
-this->validateUpdate($params)){
+if(this->validateUpdate($params)){
 			//ahora debemos encriptar la password
 			$password_encriptada = hash('sha256' , $params['password']);
 			$params['password'] = $password_encriptada;
